@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todoapp/util/dialog_box.dart';
 
 import '../util/todo_tile.dart';
 
@@ -10,6 +11,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  // texto controller
+  final _controller = TextEditingController();
+
   // lista de tarefas pra fazer
   List todoList = [
     ["Criar app de ecommerce", true],
@@ -24,6 +28,30 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  // metodo para salver uma nova tarefa
+  void saveNewTask() {
+    setState(() {
+      todoList.add([_controller.text, false]);
+      _controller.clear();
+    });
+    //fecha a caixa de dialogo
+    Navigator.of(context).pop();
+  }
+
+  // criar uma nova tarefa
+  void createNewTask() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return DialogBox(
+          controller: _controller,
+          onSave: saveNewTask,
+          onCancel: () => Navigator.of(context).pop(),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,6 +61,10 @@ class _HomePageState extends State<HomePage> {
           child: Text('To Do'),
         ),
         elevation: 0,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: createNewTask,
+        child: Icon(Icons.add),
       ),
       body: ListView.builder(
         itemCount: todoList.length,
