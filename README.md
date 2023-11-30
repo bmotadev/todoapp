@@ -1,6 +1,6 @@
 <h1 align="center">📘 ToDoApp - Seu aplicativo para gerenciar suas tarefas!</h1>
 <p align="center">TodoApp é um aplicativo de gerenciamento de tarefas, feito em Flutter. Onde o objetivo deste aplicativo, foi aprender mais sobre Flutter e seus widgets. E Local Storage com Hive, afim de persistir as informações do usuario.</p>
-
+<p align="center"><img src="https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white"> <img src="https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white"></p>
 ---
 
 
